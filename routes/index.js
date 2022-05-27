@@ -62,6 +62,7 @@ router.get('/all', async function(req, res, next) {
   $(".thead").remove();
   const table = $("body > div .table_container > table > tbody > tr").each((index, element) => {
     const tds = $(element).find("td");
+    const id = $(tds).attr('data-append-csv');
     const name = $(tds[0]).text();
     const position = $(tds[1]).text();
     const age = $(tds[2]).text();
@@ -88,7 +89,7 @@ router.get('/all', async function(req, res, next) {
     const pf = $(tds[24]).text();
     const points = $(tds[25]).text();
 
-    const tableRow = { name, position, age, team ,games, started, mp, fg, fga, fgp, three_made, three_attempts, three_percent, ft, fta, ftp, orb, drb, trb, ass, stl, blk, tov, pf, points};
+    const tableRow = { id, name, position, age, team ,games, started, mp, fg, fga, fgp, three_made, three_attempts, three_percent, ft, fta, ftp, orb, drb, trb, ass, stl, blk, tov, pf, points};
     scrapedData.push(tableRow);
 });
   console.log(scrapedData);

@@ -8,6 +8,7 @@ function getPlayers() {
     .then((res) =>
         // get just the title and url from each article
         res.Data.map((res) => ({
+            id: res.id,
             name: res.name,
             position: res.position,
             age: res.age,
