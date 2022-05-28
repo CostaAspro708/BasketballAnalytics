@@ -7,7 +7,7 @@ import {
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-
+import PlayerPage from './pages/player';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +15,7 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/players/:let/:id" element={<PlayerPage />}></Route>
     </Routes>
   </BrowserRouter>
   </React.StrictMode>

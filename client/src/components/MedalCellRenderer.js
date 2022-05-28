@@ -1,8 +1,8 @@
 export default props => {
-  const cellValue = props.valueFormatted ? props.valueFormatted : props.value;
+  const link = props.data.id.slice(0, -5);
   return (
       <span>
-         <a href={props.data.id}>{props.data.name}</a>
+         <a href={link}>{props.data.name}</a>
       </span>
   );
 }
