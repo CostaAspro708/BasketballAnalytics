@@ -52,11 +52,28 @@ router.get('/players/:let/:id', async function(req, res, next) {
     const tableRow = { date, team, homeaway, opponent, win_loss, mp, fg, fga, fgp, three_made, three_attempts, three_percent, ft, fta, ftp, orb, drb, trb, ass, stl, blk, tov, pf, points};
     scrapedData.push(tableRow);
 });
-  console.log(scrapedData);
+  const image = $("body > #wrap > #info > #meta > .media-item > img").attr('src');
+  console.log(image);
+ 
   //console.log(table.html()); 
-  res.status(200).send({Data:scrapedData});
+  res.status(200).send({Data:scrapedData, Image:image});
 });
 
+/* GET all info for player. */
+router.get('/info/players/:let/:id', async function(req, res, next) {
+  const scrapedData = [];
+  var let = req.params.let;
+  var id = req.params.id;
+  const result = await request.get("https://www.basketball-reference.com/players/"+let+"/"+id+".html");
+  const $ = cheerio.load(result);
+  const image = $("body > #wrap > #info > #meta > .media-item > img").attr('src');
+  let name = $("body h1").text();
+  name = name.slice(3);
+  name = name.slice(0,-4);
+  console.log(name);
+
+  res.status(200).send({Image:image, Name:name});
+});
 
 /* GET all players. */
 router.get('/all', async function(req, res, next) {

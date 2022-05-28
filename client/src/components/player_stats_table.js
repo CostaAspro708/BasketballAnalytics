@@ -252,6 +252,7 @@ export function PlayerTable(props){
           return <p>Loading...</p>;
         }
 
+        console.log(data);
     
 
 
@@ -268,6 +269,7 @@ export function PlayerTable(props){
     
 return (
         <div>
+            
             <div id="myChart" class="ag-theme-alpine my-chart p-4" style={{width: 1400,height: 600}}> </div>
             <div className="ag-theme-balham " style={{width: 1400,height: 600}}>
                 <AgGridReact

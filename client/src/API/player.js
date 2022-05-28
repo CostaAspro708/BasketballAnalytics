@@ -102,6 +102,16 @@ function getPlayerStats(query) {
     )
 }
 
+function getPlayerInfo(query) {
+    console.log(query);
+    const url = "http://127.0.0.1:3001/info"+query;
+    return fetch(url)
+    .then((res) => res.json())
+    .then((res) =>
+        console.log(res)
+    )
+}
+
 export function usePlayerStats(query){
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(true);
