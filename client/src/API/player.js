@@ -108,10 +108,35 @@ function getPlayerInfo(query) {
     return fetch(url)
     .then((res) => res.json())
     .then((res) =>
-        console.log(res)
+        // get just the title and url from each article
+        res.Data.map((res) => ({
+            data: res.Data
+        })),
     )
 }
+export function usePlayerInfo(query){
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(true);
+    const [error, setError] = useState(null);
 
+
+    useEffect(() => {
+                getPlayerInfo(query).then((data) => {
+                setData(data);
+                setLoading(false);
+                }).catch((e) => {
+                    setError(e);
+                    setLoading(false);
+                })
+    }, []);
+
+    return {
+        loading,
+        data,
+        error,
+    }
+
+}
 export function usePlayerStats(query){
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(true);

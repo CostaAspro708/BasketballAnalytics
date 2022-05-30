@@ -13,23 +13,10 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import DateCellRenderer from "./DateCellRenderer.js";
 
-const getRowData = () => {
-    return [
-      { date: new Date(2019, 0, 1), avgTemp: 8.27 },
-      { date: new Date(2019, 0, 5), avgTemp: 7.22 },
-      { date: new Date(2019, 0, 8), avgTemp: 11.54 },
-      { date: new Date(2019, 0, 11), avgTemp: 8.44 },
-      { date: new Date(2019, 0, 22), avgTemp: 12.03 },
-      { date: new Date(2019, 0, 23), avgTemp: 9.68 },
-      { date: new Date(2019, 0, 24), avgTemp: 9.9 },
-      { date: new Date("2021-10-21"), avgTemp: 8.74 },
-    ];
-  };
-
   const getColumnDefs = () => {
     return [
       { field: 'date', valueFormatter: dateFormatter },
-      { field: 'avgTemp' },
+      { field: 'fantasy_points' },
     ];
   };
   const dateFormatter = (params) => {
@@ -101,6 +88,22 @@ export function YearApiTableReg(props){
 return (
         <div>
             <input
+            className="
+            block
+            w-1/4
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+          "
             type="text"
             id="filter-text-box"
             placeholder="Filter..."
@@ -251,10 +254,10 @@ export function PlayerTable(props){
         if (loading) {
           return <p>Loading...</p>;
         }
-
-        console.log(data);
     
-
+        
+    
+    
 
     data.forEach(calculateFP);
     function calculateFP(value, index, array) {

@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="text-3xl font-bold underline">
-      Hello world!
+      Bball
     </h1>
     
       </header>

@@ -72,7 +72,7 @@ router.get('/info/players/:let/:id', async function(req, res, next) {
   name = name.slice(0,-4);
   console.log(name);
 
-  res.status(200).send({Image:image, Name:name});
+  res.status(200).send({Data: {Image:image, Name:name}});
 });
 
 /* GET all players. */
