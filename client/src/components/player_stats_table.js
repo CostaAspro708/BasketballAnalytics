@@ -1,4 +1,4 @@
-import {usePlayers, usePlayerStats} from "../API/player.js";
+import {usePlayers, usePlayerStats, usePlayerInfo} from "../API/player.js";
 import moment from 'moment';
 import {AgGridReact} from "ag-grid-react";
 import React, { useCallback, useMemo, useRef, useState } from 'react';
@@ -257,7 +257,7 @@ export function PlayerTable(props){
     
         
     
-    
+        
 
     data.forEach(calculateFP);
     function calculateFP(value, index, array) {

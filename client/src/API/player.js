@@ -62,7 +62,7 @@ export function usePlayers(){
 }
 
 function getPlayerStats(query) {
-    console.log(query);
+    
     const url = "http://127.0.0.1:3001"+query;
     return fetch(url)
     .then((res) => res.json())
@@ -103,16 +103,10 @@ function getPlayerStats(query) {
 }
 
 function getPlayerInfo(query) {
-    console.log(query);
+    
     const url = "http://127.0.0.1:3001/info"+query;
     return fetch(url)
     .then((res) => res.json())
-    .then((res) =>
-        // get just the title and url from each article
-        res.Data.map((res) => ({
-            data: res.Data
-        })),
-    )
 }
 export function usePlayerInfo(query){
     const [loading, setLoading] = useState(true);
